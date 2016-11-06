@@ -1,0 +1,52 @@
+html, body{
+	font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+.cst-wide-card{
+	width:100%;
+}
+.cst-bold{
+	font-weight:bold;
+}
+.cst-upper{
+	text-transform: uppercase;
+}
+.cst-text-right{
+	text-align:right;
+}
+.cst-text-top{
+	vertical-align: top;
+}
+.cst-delete-icon:hover{
+	color:red !important;
+}
+.cst-action-row{
+	background-color: #fff;
+	padding:4px;
+}
+.cst-collation-drop{
+	margin-bottom:30px;
+}
+.cst-black-text{
+	color:#000 !important;
+}
+.cst-clickable-row{
+	cursor:pointer;
+}
+.cst-text-bottom{
+	vertical-align: bottom;
+}
+.cst-white-link{
+	text-decoration:none !important;
+	color:#fff !important;
+	font-weight: normal;
+}
+.cst-white-link:hover{
+	text-decoration:underline !important;
+}
+.cst-breadcrum{
+	font-size:16px;
+}
+.cst-bc-chevron{
+	padding-left:8px;
+	padding-right:8px;
+}
