@@ -28,7 +28,13 @@ class DatabaseController extends Controller
 
 	public function show($name){
 
-		return view('database.index', ['name' => $name]);
+		$tables = DB::select("SELECT TABLE_NAME as name, ENGINE as engine, (DATA_LENGTH + INDEX_LENGTH) as size, TABLE_COLLATION as collation FROM information_schema.tables WHERE TABLE_SCHEMA = :db", ['db' => $name]);
+
+		foreach($tables as $table){
+			$table->rows = DB::select("SELECT COUNT(*) as rows FROM ".$name.".".$table->name)[0]->rows;
+		}
+
+		return view('database.index', ['name' => $name, 'tables' => $tables]);
 
 	}
 

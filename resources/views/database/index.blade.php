@@ -24,7 +24,34 @@
 @section('content')
 	<section class="mdl-layout__tab-panel is-active" id="tables-page">
 		<div class="page-content">
-
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--8-col">
+					<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cst-wide-card">
+						<thead>
+							<tr>
+								<th class="mdl-data-table__cell--non-numeric">Name</th>
+								<th>Rows</th>
+								<th>Engine</th>
+								<th>Collation</th>
+								<th>Size</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($tables as $table)
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric">{{$table->name}}</td>
+									<td>{{$table->rows}}</td>
+									<td>{{$table->engine}}</td>
+									<td>{{$table->collation}}</td>
+									<td>{{$table->size}}</td>
+									<td></td>
+								</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</section>
 	<section class="mdl-layout__tab-panel" id="sql-page">
