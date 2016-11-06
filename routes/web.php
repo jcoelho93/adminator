@@ -17,6 +17,9 @@ Route::get('/', [
 Route::get('/dashboard', [
 	'as' => 'dashboard', 'uses' => 'DashController@index'
 ]);
+Route::get('/importexport', [
+	'as' => 'import-export', 'uses' => 'DashController@importExport'
+]);
 Route::get('/databases',[
 	'as' => 'databases', 'uses' => 'DashController@databases'
 ]);

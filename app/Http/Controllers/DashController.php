@@ -40,4 +40,11 @@ class DashController extends Controller
 
 	}
 
+	public function importExport()
+	{
+
+		return view('dashboard.importexport');
+
+	}
+
 }

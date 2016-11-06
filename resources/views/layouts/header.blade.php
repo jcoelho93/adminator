@@ -9,7 +9,7 @@
 			<a class="mdl-navigation__link" href="{{route('home')}}">Home</a>
 			<a class="mdl-navigation__link" href="{{route('databases')}}">Databases</a>
 			<a class="mdl-navigation__link" href="#">Console</a>
-			<a class="mdl-navigation__link" href="#">Import/Export</a>
+			<a class="mdl-navigation__link" href="{{route('import-export')}}">Import/Export</a>
 			<a class="mdl-navigation__link" href="#">Settings</a>
 		</nav>
 	</div>
@@ -21,7 +21,7 @@
 			<a class="mdl-navigation__link" href="{{route('home')}}">Home</a>
 			<a class="mdl-navigation__link" href="{{route('databases')}}">Databases</a>
 			<a class="mdl-navigation__link" href="#">Console</a>
-			<a class="mdl-navigation__link" href="#">Import/Export</a>
+			<a class="mdl-navigation__link" href="{{route('import-export')}}">Import/Export</a>
 			<a class="mdl-navigation__link" href="#">Settings</a>
 		</nav>
 </div>
