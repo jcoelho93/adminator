@@ -10,6 +10,7 @@ A simple and modern MySQL management tool.
 #Screenshot
 
 ![alt tag](https://raw.githubusercontent.com/jcamilo93/adminator/master/screenshots/screen1.png)
+![alt tag](https://raw.githubusercontent.com/jcamilo93/adminator/master/screenshots/screen2.png)
 
 #Installation
 
