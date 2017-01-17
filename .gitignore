@@ -1,5 +1,6 @@
 /node_modules
 /public/storage
+/public/favicon.png
 /vendor
 /.idea
 Homestead.json
