@@ -1,4 +1,4 @@
-# adminator
+#adminator
 
 A simple and modern MySQL management tool.
 
@@ -6,6 +6,10 @@ A simple and modern MySQL management tool.
 
 * Built with PHP [Laravel](https://laravel.com) framework
 * Material Design style with [Material Design Lite](https://getmdl.io/) library
+
+#Screenshot
+
+![alt tag](https://raw.githubusercontent.com/jcamilo93/adminator/master/screenshots/screen1.png)
 
 #Installation
 
