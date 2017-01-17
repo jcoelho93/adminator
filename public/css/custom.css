@@ -54,3 +54,6 @@ html, body{
 	width:100%;
 	border:0px;
 }
+.cst-active{
+	background-color: #00BBA8;
+}

@@ -17,6 +17,11 @@ Route::get('/', [
 Route::get('/dashboard', [
 	'as' => 'dashboard', 'uses' => 'DashController@index'
 ]);
+
+Route::get('/settings', [
+	'as' => 'settings', 'uses' => 'DashController@settings'
+]);
+
 Route::get('/console', [
 	'as' => 'console', 'uses' => 'DashController@console'
 ]);
