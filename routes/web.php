@@ -17,6 +17,9 @@ Route::get('/', [
 Route::get('/dashboard', [
 	'as' => 'dashboard', 'uses' => 'DashController@index'
 ]);
+Route::get('/console', [
+	'as' => 'console', 'uses' => 'DashController@console'
+]);
 Route::get('/importexport', [
 	'as' => 'import-export', 'uses' => 'DashController@importExport'
 ]);
@@ -31,4 +34,8 @@ Route::post('/databases', [
 ]);
 Route::post('/databases/delete', [
 	'as' => 'delete-database', 'uses' => 'DatabaseController@delete'
+]);
+
+Route::get('/table/{name}', [
+	'as' => 'show-table', 'uses' => 'TableController@show'
 ]);

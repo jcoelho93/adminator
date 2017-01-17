@@ -47,4 +47,11 @@ class DashController extends Controller
 
 	}
 
+	public function console()
+	{
+
+		return view('dashboard.console');
+
+	}
+
 }

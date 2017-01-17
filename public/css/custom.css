@@ -50,3 +50,7 @@ html, body{
 	padding-left:8px;
 	padding-right:8px;
 }
+.cst-console{
+	width:100%;
+	border:0px;
+}

@@ -69,5 +69,32 @@
 			</div>
 		</div>
 	</div>
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--12-col">
+			<div class="mdl-card mdl-shadow--2dp cst-wide-card">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">Graphs</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<table width="100%">
+						<tr>
+							<td>
+								<canvas id="testchart" width="100%" height="100%"></canvas>
+							</td>
+							<td>
+								<canvas id="testchart" width="100%" height="100%"></canvas>
+							</td>
+							<td>
+								<canvas id="testchart" width="100%" height="100%"></canvas>
+							</td>
+							<td>
+								<canvas id="testchart" width="100%" height="100%"></canvas>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection

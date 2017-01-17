@@ -39,7 +39,7 @@
 						</thead>
 						<tbody>
 							@foreach($tables as $table)
-								<tr>
+								<tr data-href="{{route('show-table',['name'=>$table->name])}}" class="cst-clickable-row">
 									<td class="mdl-data-table__cell--non-numeric">{{$table->name}}</td>
 									<td>{{$table->rows}}</td>
 									<td>{{$table->engine}}</td>
