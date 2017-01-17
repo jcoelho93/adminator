@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
+    <link rel="shortcut icon" type="image/png" href="{{asset('favicon.png')}}"/>
 </head>
 <body>
 

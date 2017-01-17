@@ -17,10 +17,10 @@
 				</thead>
 				<tbody>
 					@foreach($databases as $db)
-						<tr data-href="{{route('show-database',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row">
-							<td class="mdl-data-table__cell--non-numeric">{{$db->SCHEMA_NAME}}</td>
-							<td>{{$db->DEFAULT_CHARACTER_SET_NAME}}</td>
-							<td>{{$db->DEFAULT_COLLATION_NAME}}</td>
+						<tr>
+							<td data-href="{{route('show-database',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row mdl-data-table__cell--non-numeric">{{$db->SCHEMA_NAME}}</td>
+							<td data-href="{{route('show-database',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row">{{$db->DEFAULT_CHARACTER_SET_NAME}}</td>
+							<td data-href="{{route('show-database',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row">{{$db->DEFAULT_COLLATION_NAME}}</td>
 							<td>
 								<form action="{{action('DatabaseController@delete')}}" method="post" onsubmit="return confirm('Are you sure you want to delete this database?');">
 									<input type="hidden" name="_token" value="{{csrf_token()}}">
