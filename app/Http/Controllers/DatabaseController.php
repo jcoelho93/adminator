@@ -7,6 +7,17 @@ use DB;
 
 class DatabaseController extends Controller
 {
+
+	public function index()
+	{
+
+		$databases = DB::select("SELECT * FROM information_schema.schemata");
+		$default_collation = DB::select("SELECT DEFAULT_COLLATION_NAME as collation FROM information_schema.schemata WHERE schema_name = 'information_schema'")[0]->collation;
+		$collations = DB::select("SELECT COLLATION_NAME FROM information_schema.collations ORDER BY COLLATION_NAME");
+
+		return view('dashboard.databases', ['databases' => $databases, 'collations' => $collations, 'default_collation' => $default_collation]);
+		
+	}
     
 	public function create(Request $request)
 	{
