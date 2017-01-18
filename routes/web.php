@@ -20,7 +20,7 @@ Route::get('/dashboard', [
 ]);
 Route::get('/settings', [
 	'as' => 'settings', 'uses' => 'DashController@settings'
-])
+]);
 Route::get('/console', [
 	'as' => 'console', 'uses' => 'DashController@console'
 ]);
@@ -33,7 +33,7 @@ Route::get('/databases',[
 	'as' => 'databases', 'uses' => 'DatabaseController@index'
 ]);
 Route::get('/databases/{name}', [
-	'as' => 'show-database', 'uses' => 'DatabaseController@show'
+	'as' => 'show-tables', 'uses' => 'DatabaseController@show'
 ]);
 Route::post('/databases', [
 	'as' => 'create-database', 'uses' => 'DatabaseController@create'
@@ -43,6 +43,6 @@ Route::post('/databases/delete', [
 ]);
 
 /*-- TABLE ROUTES --*/
-Route::get('/table/{name}', [
-	'as' => 'show-table', 'uses' => 'TableController@show'
+Route::get('/databases/db/table', [
+	'as' => 'show-rows', 'uses' => 'TablesController@index'
 ]);

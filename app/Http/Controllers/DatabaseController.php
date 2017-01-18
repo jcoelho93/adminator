@@ -15,7 +15,7 @@ class DatabaseController extends Controller
 		$default_collation = DB::select("SELECT DEFAULT_COLLATION_NAME as collation FROM information_schema.schemata WHERE schema_name = 'information_schema'")[0]->collation;
 		$collations = DB::select("SELECT COLLATION_NAME FROM information_schema.collations ORDER BY COLLATION_NAME");
 
-		return view('dashboard.databases', ['databases' => $databases, 'collations' => $collations, 'default_collation' => $default_collation]);
+		return view('database.index', ['databases' => $databases, 'collations' => $collations, 'default_collation' => $default_collation]);
 		
 	}
     
@@ -45,7 +45,7 @@ class DatabaseController extends Controller
 			$table->rows = DB::select("SELECT COUNT(*) as rows FROM ".$name.".".$table->name)[0]->rows;
 		}
 
-		return view('database.index', ['name' => $name, 'tables' => $tables]);
+		return view('table.index', ['name' => $name, 'tables' => $tables]);
 
 	}
 

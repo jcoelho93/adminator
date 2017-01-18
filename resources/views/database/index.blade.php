@@ -1,77 +1,80 @@
 @extends('layouts.master')
-
 @section('title')
-	| {{$name}}
+ | Databases
 @endsection
-
-@section('breadcrums')
-	<span class="cst-bc-chevron">></span>
-	<a class="cst-white-link cst-breadcrum" href="{{route('databases')}}">databases</a>
-	<span class="cst-bc-chevron">></span>
-	<a class="cst-white-link cst-breadcrum" href="{{route('show-database',['name' => $name])}}">{{$name}}</a>
-@endsection
-
-@section('tabs')
-	<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-		<a href="#tables-page" class="mdl-layout__tab is-active">Tables</a>
-		<a href="#sql-page" class="mdl-layout__tab">SQL</a>
-		<a href="#ie-page" class="mdl-layout__tab">Import/Export</a>
-		<a href="#edit-page" class="mdl-layout__tab">Edit</a>
-		<a href="#privileges-page" class="mdl-layout__tab">Privileges</a>
-	</div>
-@endsection
-
 @section('content')
-	<section class="mdl-layout__tab-panel is-active" id="tables-page">
-		<div class="page-content">
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--8-col">
-					<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cst-wide-card">
-						<thead>
+<div class="page-content">
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--8-col">
+			<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cst-wide-card">
+				<thead>
+					<tr>
+						<th class="mdl-data-table__cell--non-numeric">Name</th>
+						<th>Character set</th>
+						<th>Collation</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($databases as $db)
+						<tr>
+							<td data-href="{{route('show-tables',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row mdl-data-table__cell--non-numeric">{{$db->SCHEMA_NAME}}</td>
+							<td data-href="{{route('show-tables',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row">{{$db->DEFAULT_CHARACTER_SET_NAME}}</td>
+							<td data-href="{{route('show-tables',['name'=>$db->SCHEMA_NAME])}}" class="cst-clickable-row">{{$db->DEFAULT_COLLATION_NAME}}</td>
+							<td>
+								<form action="{{action('DatabaseController@delete')}}" method="post" onsubmit="return confirm('Are you sure you want to delete this database?');">
+									<input type="hidden" name="_token" value="{{csrf_token()}}">
+									<input type="hidden" name="dbname" value="{{$db->SCHEMA_NAME}}">
+									<button class="mdl-button mdl-js-button cst-delete-icon"><i class="mdl-color-text--blue-grey-400 material-icons">delete</i></button>
+								</form>
+							</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col">
+			<div class="mdl-card mdl-shadow--2dp cst-wide-card">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">Create new database</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<form method="POST" action="{{route('create-database')}}">
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
+						<table class="cst-wide-card">
 							<tr>
-								<th class="mdl-data-table__cell--non-numeric">Name</th>
-								<th>Rows</th>
-								<th>Engine</th>
-								<th>Collation</th>
-								<th>Size</th>
-								<th>Action</th>
+								<td>
+									<div class="mdl-textfield mdl-js-textfield cst-wide-card">
+										<input class="mdl-textfield__input" type="text" id="dbname" name="dbname">
+										<label class="mdl-textfield__label" for="dbname">Name...</label>
+									</div>	
+								</td>
 							</tr>
-						</thead>
-						<tbody>
-							@foreach($tables as $table)
-								<tr data-href="{{route('show-table',['name'=>$table->name])}}" class="cst-clickable-row">
-									<td class="mdl-data-table__cell--non-numeric">{{$table->name}}</td>
-									<td>{{$table->rows}}</td>
-									<td>{{$table->engine}}</td>
-									<td>{{$table->collation}}</td>
-									<td>{{$table->size}}</td>
-									<td></td>
-								</tr>
-							@endforeach
-						</tbody>
-					</table>
+							<tr>
+								<td>
+									<select name="collation" class="mdl-button cst-collation-drop cst-wide-card">
+										<option value="{{$default_collation}}">SELECT COLLATION...</option>
+										@foreach($collations as $collation)
+											<option value="{{$collation->COLLATION_NAME}}">{{$collation->COLLATION_NAME}}</option>
+										@endforeach
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td class="cst-text-right">
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Create</button>
+								</td>
+							</tr>
+						</table>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
-	<section class="mdl-layout__tab-panel" id="sql-page">
-		<div class="page-content">
-
+	</div>
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp cst-action-row cst-text-right">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">delete</i>Delete</button>
 		</div>
-	</section>
-	<section class="mdl-layout__tab-panel" id="ie-page">
-		<div class="page-content">
-
-		</div>
-	</section>
-	<section class="mdl-layout__tab-panel" id="edit-page">
-		<div class="page-content">
-
-		</div>
-	</section>
-	<section class="mdl-layout__tab-panel" id="privileges-page">
-		<div class="page-content">
-
-		</div>
-	</section>
+	</div>
+</div>
 @endsection
