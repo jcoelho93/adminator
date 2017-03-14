@@ -7,7 +7,7 @@ A simple and modern MySQL management tool.
 * Built with PHP [Laravel](https://laravel.com) framework
 * Material Design style with [Material Design Lite](https://getmdl.io/) library
 
-# Screenshot
+# Screenshots
 
 ![alt tag](https://raw.githubusercontent.com/jcamilo93/adminator/master/screenshots/screen1.png)
 
